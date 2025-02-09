@@ -64,3 +64,24 @@ if st.button("Mostra Ritardi"):
 if st.button("🔄 Resetta Dati"):
     st.session_state.numeri_estratti = []
     st.success("Dati resettati con successo!")
+
+import streamlit as st
+
+# Titolo dell'app
+st.title("Roulette Game 🎰")
+
+# Input per i numeri della roulette
+numero = st.number_input("Inserisci il numero della roulette (0-36):", min_value=0, max_value=36)
+
+# Bottone per confermare
+if st.button("Gioca!"):
+    import random
+    risultato = random.randint(0, 36)
+    st.write(f"📢 Numero uscito: {risultato}")
+
+    if numero == risultato:
+        st.success("🎉 Complimenti! Hai vinto!")
+    else:
+        st.error("😞 Riprova, la fortuna gira!")
+
+
